@@ -162,7 +162,7 @@
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-circle">
             <svg viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="45"></circle>
+                <circle cx="50" cy="50" r="45" style="stroke: #e0e0e0; fill: none; stroke-width: 4;"></circle>
             </svg>
             <div class="center-logo">
                 <?xml version="1.0" encoding="utf-8"?>
@@ -344,7 +344,7 @@
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
                 mainContainer.style.display = 'block';
-            }, 3000); // Adjusted loading time
+            }, 3000);
         });
 
         function toggleCustomInputs() {
@@ -376,17 +376,13 @@
                 return;
             }
 
-            // Correct formula for tension calculation
             const beltTension = (7.67364 * displayValue) - 33.716736;
 
-            // Check if within range
             const withinRange = beltTension >= minTension && beltTension <= maxTension ? 'YES' : 'NO';
 
-            // Update the results
             document.getElementById('tension').value = beltTension.toFixed(2);
             document.getElementById('rangeCheck').value = withinRange;
 
-            // Display results in the result container with animation
             const resultContainer = document.getElementById('resultContainer');
             resultContainer.style.display = 'block';
             resultContainer.style.opacity = '0';
@@ -398,5 +394,20 @@
             document.getElementById('resultRange').innerText = withinRange;
         }
     </script>
+
+    <footer style="position: fixed; bottom: 10px; right: 10px; font-size: 14px; color: #e0e0e0; text-align: right;">
+        <p>Open in:</p>
+        <div style="display: flex; gap: 10px;">
+            <a href="bambustudio://https://github.com/danielsantos0711/BIQU-Belter-Tension-Calculator/raw/refs/heads/main/Biqu%20Belter.3mf" style="color: #ffffff; border: 1px solid #ffffff; text-decoration: none; border: 1px solid rgb(255, 255, 255); padding: 5px 10px; border-radius: 5px; transition: all 0.3s;">
+                Bambu Studio
+            </a>
+            <a href="orcaslicer://https://github.com/danielsantos0711/BIQU-Belter-Tension-Calculator/raw/refs/heads/main/Biqu%20Belter.3mf" style="color: #ffffff; border: 1px solid #ffffff; text-decoration: none; border: 1px solid rgb(255, 255, 255); padding: 5px 10px; border-radius: 5px; transition: all 0.3s;">
+                Orca Slicer
+            </a>
+            <a href="https://makerworld.com/en/models/923039#profileId-885547" target="_blank" style="color: #ffffff; border: 1px solid #ffffff; text-decoration: none; border: 1px solid rgb(255, 255, 255); padding: 5px 10px; border-radius: 5px; transition: all 0.3s;">
+                MakerWorld
+            </a>
+        </div>
+    </footer>
 </body>
 </html>
